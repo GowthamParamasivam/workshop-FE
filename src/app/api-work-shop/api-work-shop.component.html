@@ -1,0 +1,224 @@
+<section class="page">
+    <div class="header">
+        <h3>Hyperledger fabric workshop </h3>
+    </div>
+    <div class="page-tabs">
+        <mat-tab-group animationDuration="1000ms">
+            <mat-tab label="Student">
+                <div class="student-tab">
+                    <div class="student-header">
+                        <p>Students</p>
+                    </div>
+                    <div class="student-pages">
+                        <mat-tab-group>
+                            <mat-tab label="Register">
+                                <ng-container>
+                                    <form [formGroup]="registerationForm" (ngSubmit)="onRegistration()">
+                                        <input type="text" id="name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Student name" formControlName="student_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!registerationForm.valid" type="submit">Register</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Enroll In College">
+                                <ng-container>
+                                    <form [formGroup]="studentEnrollInCollegeForm"
+                                        (ngSubmit)="onStudentEnrollInCollege()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="student-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Student Name" formControlName="student_name">
+                                        <input type="text" id="department"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Department" formControlName="department">
+                                        <input type="text" id="age"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="age" formControlName="age">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!studentEnrollInCollegeForm.valid" type="submit">Enroll</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Retrieving">
+                                <ng-container>
+                                    <form [formGroup]="studentByChainCodeForm" (ngSubmit)="onGetStudentByChainCode()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="student-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Student Name" formControlName="student_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!studentByChainCodeForm.valid" type="submit">Get
+                                            Student</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Enroll In Course">
+                                <ng-container>
+                                    <form [formGroup]="studentEnrollInCourseForm" (ngSubmit)="onEnrollInCourse()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="student-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Student Name" formControlName="student_name">
+                                        <input type="text" id="course-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Course Name" formControlName="course_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!studentEnrollInCourseForm.valid" type="submit">Enroll In
+                                            Course</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Faculty">
+                <div class="faculty-tab">
+                    <div class="faculty-header">
+                        <p>Faculty</p>
+                    </div>
+                    <div class="faculty-pages">
+                        <mat-tab-group>
+                            <mat-tab label="Register">
+                                <ng-container>
+                                    <form [formGroup]="facultyRegisterationForm" (ngSubmit)="onFacultyRegistration()">
+                                        <input type="text" id="name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty name" formControlName="faculty_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!facultyRegisterationForm.valid" type="submit">Register</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Enroll Faculty In College">
+                                <ng-container>
+                                    <form [formGroup]="facultyEnrollInCollegeForm"
+                                        (ngSubmit)="onfacultyEnrollInCollege()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="faculty-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty Name" formControlName="faculty_name">
+                                        <input type="text" id="department"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Department" formControlName="department">
+                                        <input type="text" id="age"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="age" formControlName="age">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!facultyEnrollInCollegeForm.valid" type="submit">Enroll</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Retrieving Faculty">
+                                <ng-container>
+                                    <form [formGroup]="facultyByChainCodeForm" (ngSubmit)="onGetfacultyByChainCode()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="faculty-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty Name" formControlName="faculty_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!facultyByChainCodeForm.valid" type="submit">Get
+                                            Faculty</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Retrieving Student By Faculty">
+                                <ng-container>
+                                    <form [formGroup]="studentByFacultyForm" (ngSubmit)="onGetStudentByFaculty()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="student-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Student Name" formControlName="student_name">
+                                        <input type="text" id="faculty-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty Name" formControlName="faculty_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!studentByFacultyForm.valid" type="submit">Get
+                                            Student</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Retrieving All Students By Faculty">
+                                <ng-container>
+                                    <form [formGroup]="studentsByFaculty" (ngSubmit)="onGetStudentsByFaculty()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="faculty-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty Name" formControlName="faculty_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!studentsByFaculty.valid" type="submit">Get
+                                            Students</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                            <mat-tab label="Retrieving All Faculty By Faculty">
+                                <ng-container>
+                                    <form [formGroup]="getAllFacultyForm" (ngSubmit)="onGetAllFaculty()">
+                                        <input type="text" id="channel-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Channel" formControlName="channel_name">
+                                        <input type="text" id="chain-code-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Chain code" formControlName="chain_code_name">
+                                        <input type="text" id="faculty-name"
+                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            placeholder="Faculty Name" formControlName="faculty_name">
+                                        <button
+                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                            [disabled]="!getAllFacultyForm.valid" type="submit">Get All Faculty</button>
+                                    </form>
+                                </ng-container>
+                            </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>
