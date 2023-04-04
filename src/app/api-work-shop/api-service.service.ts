@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -44,8 +44,11 @@ export class ApiWorkShop {
      * @return{Observable}
      */
     enrollInCollege(data?: object): Observable<any> {
-        console.log(data);
-        return this._httpClient.post(this.studentUrl + '/enrollstudent', data);
+        const userToken = 'secure-user-token';
+        const headers = new HttpHeaders()
+            .set("Authorization", `Bearer ${userToken}`);
+        return this._httpClient.post(this.studentUrl + '/enrollstudent', data,
+            { headers: headers });
     }
 
     /**

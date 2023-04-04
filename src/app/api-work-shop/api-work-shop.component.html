@@ -4,6 +4,7 @@
     </div>
     <div class="page-tabs">
         <mat-tab-group animationDuration="1000ms">
+            <!--Student-->
             <mat-tab label="Student">
                 <div class="student-tab">
                     <div class="student-header">
@@ -12,18 +13,42 @@
                     <div class="student-pages">
                         <mat-tab-group>
                             <mat-tab label="Register">
-                                <ng-container>
-                                    <form [formGroup]="registerationForm" (ngSubmit)="onRegistration()">
-                                        <input type="text" id="name"
-                                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="Student name" formControlName="student_name">
-                                        <button
-                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                                            [disabled]="!registerationForm.valid" type="submit">Register</button>
-                                    </form>
-                                </ng-container>
+                                <div class="form">
+                                    <mat-grid-list cols="2" rowHeight="2:1">
+                                        <mat-grid-tile>
+                                            <form [formGroup]="registerationForm" (ngSubmit)="onRegistration()">
+                                                <mat-form-field class="example-full-width">
+                                                    <mat-label>Student name</mat-label>
+                                                    <input matInput placeholder="Student name"
+                                                        formControlName="student_name">
+                                                </mat-form-field>
+                                                <button mat-stroked-button color="primary"
+                                                    [disabled]="!registerationForm.valid" type="submit">Primary</button>
+                                            </form>
+                                        </mat-grid-tile>
+                                        <mat-grid-tile>2</mat-grid-tile>
+                                    </mat-grid-list>
+
+                                </div>
                             </mat-tab>
                             <mat-tab label="Enroll In College">
+                                <div class="form">
+                                    <mat-grid-list cols="2" rowHeight="2:1">
+                                        <mat-grid-tile>
+                                            <form [formGroup]="registerationForm" (ngSubmit)="onRegistration()">
+                                                <mat-form-field class="example-full-width">
+                                                    <mat-label>Student name</mat-label>
+                                                    <input matInput placeholder="Student name"
+                                                        formControlName="student_name">
+                                                </mat-form-field>
+                                                <button mat-stroked-button color="primary"
+                                                    [disabled]="!registerationForm.valid" type="submit">Primary</button>
+                                            </form>
+                                        </mat-grid-tile>
+                                        <mat-grid-tile>2</mat-grid-tile>
+                                    </mat-grid-list>
+
+                                </div>
                                 <ng-container>
                                     <form [formGroup]="studentEnrollInCollegeForm"
                                         (ngSubmit)="onStudentEnrollInCollege()">

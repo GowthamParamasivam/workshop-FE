@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 
 
@@ -31,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatInputModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
 
   ],
   providers: [],
